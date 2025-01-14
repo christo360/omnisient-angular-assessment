@@ -10,12 +10,13 @@ import { MatSort } from '@angular/material/sort';
 @Component({
   selector: 'app-dataset-list',
   templateUrl: './dataset-list.component.html',
-  imports: [DatePipe, MatTableModule],
+  imports: [DatePipe, MatTableModule, MatPaginator],
 })
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
   datasets: Dataset[] = [];
-  displayedColumns: string[] = ['id', 'name', 'uploadedBy', 'updateDate'];
+  displayedColumns: string[] = ['id', 'name', 'uploadedBy', 'updateDate', 'actions'];
+  dataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
@@ -25,19 +26,22 @@ export class DatasetListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.datasetFacade.loadDatasets()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (datasets) => {
-          this.datasets = datasets;
-        },
-        error: (err) => {
-          this.datasets = [];
-          console.error('Error loading datasets', err);
-        },
-        complete: () => {
-          console.log('Dataset loading completed');
-        }
-      });
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (datasets) => {
+        this.datasets = datasets;
+        this.dataSource.data = datasets; // Assign datasets to the data source
+        this.dataSource.paginator = this.paginator; // Link paginator
+        this.dataSource.sort = this.sort;           // Link sort
+      },
+      error: (err) => {
+        this.datasets = [];
+        console.error('Error loading datasets', err);
+      },
+      complete: () => {
+        console.log('Dataset loading completed');
+      }
+    });
   }
 
   ngOnDestroy() {
