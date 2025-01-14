@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { DatasetState } from './dataset.reducers';
+import { DatasetState } from './dataset.state';
 
 
-export const selectDatasetState = createFeatureSelector<DatasetState>('dataset');
+export const selectDatasetState = createFeatureSelector<DatasetState>('datasets');
 
 export const selectDatasets = createSelector(
   selectDatasetState,

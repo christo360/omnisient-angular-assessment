@@ -1,12 +1,11 @@
-// src/app/store/facades/dataset.facade.ts
-
 import { inject, Injectable } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+
 import { Dataset } from '../dataset.model';
-import { selectDatasets, selectDatasetsError, selectDatasetsLoading } from '../../store/dataset/dataset.selectors';
 import { loadDatasets } from '../../store/dataset/dataset.actions';
+import { selectDatasets } from '../../store/dataset/dataset.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -14,12 +13,12 @@ import { loadDatasets } from '../../store/dataset/dataset.actions';
 export class DatasetFacade {
   private store = inject(Store);
 
-  datasets$: Observable<Dataset[]> = this.store.pipe(select(selectDatasets));
-  loading$: Observable<boolean> = this.store.pipe(select(selectDatasetsLoading));
-  error$: Observable<any> = this.store.pipe(select(selectDatasetsError));
+  datasets$: Observable<Dataset[]> = this.store.select(selectDatasets);
 
-  loadDatasets() {
+  loadDatasets(): Observable<Dataset[]> {
     this.store.dispatch(loadDatasets());
+    return this.datasets$;
   }
 }
+
 

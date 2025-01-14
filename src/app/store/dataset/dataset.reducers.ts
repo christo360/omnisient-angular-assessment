@@ -1,20 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
-import { Dataset } from '../../models/dataset.model';
 import { loadDatasets, loadDatasetsFailure, loadDatasetsSuccess } from './dataset.actions';
+import { initialState } from './dataset.state';
 
-export interface DatasetState {
-  datasets: Dataset[];
-  loading: boolean;
-  error: any;
-}
-
-export const initialState: DatasetState = {
-  datasets: [],
-  loading: false,
-  error: null,
-};
-
-export const datasetReducer = createReducer(
+export const datasetsReducer = createReducer(
   initialState,
   on(loadDatasets, state => ({ ...state, loading: true })),
   on(loadDatasetsSuccess, (state, { datasets }) => ({

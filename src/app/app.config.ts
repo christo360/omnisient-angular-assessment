@@ -5,14 +5,14 @@ import { provideEffects } from '@ngrx/effects';
 
 import { routes } from './app.routes';
 import { DatasetEffects } from './store/dataset/dataset.effects';
-import { datasetReducer } from './store/dataset/dataset.reducers';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { datasetsReducer } from './store/dataset/dataset.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideStore({dataSets: datasetReducer}),
+    provideStore({ datasets: datasetsReducer }),
     provideEffects([DatasetEffects]), provideAnimationsAsync(),
   ],
 };
