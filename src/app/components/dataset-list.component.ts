@@ -1,16 +1,18 @@
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { map, Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { Dataset } from '../models/dataset.model';
 import { DatasetFacade } from '../models/facades/dataset.facade';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { DatePipe } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-dataset-list',
   templateUrl: './dataset-list.component.html',
-  imports: [DatePipe, MatTableModule, MatPaginator],
+  styleUrls:['./dataset-list.component.scss'],
+  imports: [DatePipe, MatTableModule, MatPaginator, MatCardModule],
 })
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
@@ -30,9 +32,9 @@ export class DatasetListComponent implements OnInit, OnDestroy {
     .subscribe({
       next: (datasets) => {
         this.datasets = datasets;
-        this.dataSource.data = datasets; // Assign datasets to the data source
-        this.dataSource.paginator = this.paginator; // Link paginator
-        this.dataSource.sort = this.sort;           // Link sort
+        this.dataSource.data = datasets;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       error: (err) => {
         this.datasets = [];
