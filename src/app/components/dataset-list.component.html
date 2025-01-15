@@ -1,28 +1,38 @@
 <div class="layout-container">
   <div class="layout-container__main">
 
-    <mat-card appearance="outlined" class="layout-container__main__top-card">
-      <mat-card-header>
-        <mat-card-title>New Card (3/4 Width)</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>This is the new card taking 3/4 of the screen above the table section.</p>
-      </mat-card-content>
+    <mat-card appearance="outlined" class="layout-container__main__cta-card">
+      <div class="layout-container__main__cta-card__image-container">
+        <img src="assets/cta-banner.png" alt="CTA Banner" class="layout-container__main__cta-card__image-container__image" />
+      </div>
     </mat-card>
 
     <mat-card appearance="outlined" class="layout-container__main__datasets">
       <mat-card-content>
         <div class="layout-container__main__datasets__simple-cards">
-          <mat-card appearance="outlined" class="layout-container__main__datasets__simple-cards__simple-card">
-            <mat-card-content>Simple card</mat-card-content>
+          <mat-card
+           appearance="outlined"
+           class="layout-container__main__datasets__simple-cards__simple-card"
+           [ngClass]="{'selected': selectedCard === 'review'}"
+           (click)="filterDatasetsByStatus('review')">
+            <mat-card-content>Dataset Reviews</mat-card-content>
           </mat-card>
-          <mat-card appearance="outlined" class="layout-container__main__datasets__simple-cards__simple-card">
-            <mat-card-content>Simple card</mat-card-content>
+          <mat-card appearance="outlined"
+           class="layout-container__main__datasets__simple-cards__simple-card"
+           [ngClass]="{'selected': selectedCard === 'fail'}"
+           (click)="filterDatasetsByStatus('fail')">
+            <mat-card-content>Failed Uploads</mat-card-content>
           </mat-card>
-          <mat-card appearance="outlined" class="layout-container__main__datasets__simple-cards__simple-card">
-            <mat-card-content>Simple card</mat-card-content>
+          <mat-card
+            appearance="outlined"
+            class="layout-container__main__datasets__simple-cards__simple-card"
+            [ngClass]="{'selected': selectedCard === 'shares'}"
+            (click)="filterDatasetsByStatus('shares')">
+            <mat-card-content>Shares by company</mat-card-content>
           </mat-card>
         </div>
+
+        <h4 class="layout-container__main__datasets__heading">Dataset Table</h4>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           <ng-container matColumnDef="id">
@@ -31,7 +41,7 @@
           </ng-container>
 
           <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Dataset name</th>
             <td mat-cell *matCellDef="let dataset">{{ dataset.name }}</td>
           </ng-container>
 
@@ -41,7 +51,7 @@
           </ng-container>
 
           <ng-container matColumnDef="updateDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Update Date</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated</th>
             <td mat-cell *matCellDef="let dataset">{{ dataset.updateDate | date }}</td>
           </ng-container>
 
