@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 
-import { Dataset } from '../dataset.model';
-import { loadDatasets } from '../../store/dataset/dataset.actions';
-import { selectDatasets } from '../../store/dataset/dataset.selectors';
+import { Dataset } from '../models/dataset.model';
+import { loadDatasets } from '../store/dataset/dataset.actions';
+import { selectDatasets } from '../store/dataset/dataset.selectors';
 
 @Injectable({
   providedIn: 'root',

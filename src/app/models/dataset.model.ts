@@ -3,4 +3,8 @@ export interface Dataset {
   name: string;
   uploadedBy: string;
   updateDate: Date;
+  uploaded: boolean;
+  status: string;
+  containsPersonalInfo: boolean;
+  containsErrors: boolean;
 }
