@@ -18,12 +18,16 @@ export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
   datasets: Dataset[] = [];
   displayedColumns: string[] = ['id', 'name', 'uploadedBy', 'updateDate', 'actions'];
+  displayedSideColumns: string[] = ['name', 'updateDate'];
   dataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
+  sideTableDataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
 
   selectedCard: string = '';
+  selectedDataset!: Dataset;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild('sidePaginator', { static: true }) sidePaginator!: MatPaginator;
 
   private datasetFacade = inject(DatasetFacade);
   private destroy$ = new Subject<void>();
@@ -37,6 +41,13 @@ export class DatasetListComponent implements OnInit, OnDestroy {
         this.dataSource.data = datasets;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+
+         // Assign the full dataset to side table
+         this.sideTableDataSource.data = datasets;
+         this.sideTableDataSource.paginator = this.sidePaginator; // Bind paginator to side table
+
+         // Assign the filtered data for the main table based on status (default filter)
+         this.filterDatasetsByStatus('review');
       },
       error: (err) => {
         this.datasets = [];
@@ -58,5 +69,9 @@ export class DatasetListComponent implements OnInit, OnDestroy {
     this.selectedCard = status;
     const filteredDatasets = this.datasets.filter(dataset => dataset.status === status);
     this.dataSource.data = filteredDatasets;
+  }
+
+  onDatasetClick(dataset: Dataset) {
+    this.selectedDataset = dataset;
   }
 }
