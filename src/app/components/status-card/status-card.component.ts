@@ -4,11 +4,12 @@ import { AsyncPipe, NgClass } from '@angular/common';
 import { StatusText } from '../../enums/status.enum';
 import { Observable } from 'rxjs';
 import { DatasetFacade } from '../../facades/dataset.facade';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'status-card',
   templateUrl: './status-card.component.html',
   styleUrls: ['./status-card.component.scss'],
-  imports: [MatCardModule, NgClass, AsyncPipe],
+  imports: [MatCardModule, NgClass, AsyncPipe, MatIconModule],
 })
 export class StatusCardComponent implements OnInit {
   @Input() statusInput!: string;
@@ -19,7 +20,7 @@ export class StatusCardComponent implements OnInit {
 
   private datasetFacade = inject(DatasetFacade);
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.statusCount$ = this.datasetFacade.getStatusCount(this.statusInput);
   }
 
@@ -29,5 +30,13 @@ export class StatusCardComponent implements OnInit {
 
   onCardClick(status: string) {
     this.statusSelectedOutput.emit(status);
+  }
+
+  getStatusColorClass(): string {
+    return this.statusInput === 'review' || this.statusInput === 'shares'
+      ? 'green-icon'
+      : this.statusInput === 'fail'
+      ? 'red-icon'
+      : '';
   }
 }

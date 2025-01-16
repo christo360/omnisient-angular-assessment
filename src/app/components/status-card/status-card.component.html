@@ -4,5 +4,13 @@
   [ngClass]="{'selected': selectedStatusInput === statusInput}"
   (click)="onCardClick(statusInput)"
 >
-  <mat-card-content>{{ statusDisplayText(statusInput) }} {{ statusCount$ | async}}</mat-card-content>
+  <mat-card-content>
+    <div class="status-text">
+      {{ statusDisplayText(statusInput) }}
+    </div>
+    <div class="status-count">
+      {{ statusCount$ | async}} <mat-icon [ngClass]="getStatusColorClass()">south_west</mat-icon>
+       <span [ngClass]="getStatusColorClass()">10%</span>
+    </div>
+  </mat-card-content>
 </mat-card>

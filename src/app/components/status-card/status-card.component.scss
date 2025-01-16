@@ -23,4 +23,21 @@
   &:last-child {
     margin-right: 0;
   }
+  .green-icon {
+    color: vars.$green;
+  }
+
+  .status-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .percentage-text {
+    font-size: vars.$font-size-xs;
+  }
+
+  .red-icon {
+    color: vars.$red;
+  }
 }
