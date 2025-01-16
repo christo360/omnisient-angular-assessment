@@ -1,0 +1,8 @@
+<mat-card
+  appearance="outlined"
+  class="status-card"
+  [ngClass]="{'selected': selectedStatus === status}"
+  (click)="onCardClick(status)"
+>
+  <mat-card-content>{{ status }}</mat-card-content>
+</mat-card>

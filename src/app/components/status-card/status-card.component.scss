@@ -1,0 +1,23 @@
+.status-card {
+  flex: 1;
+  margin: 0 10px;
+  width: 300px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.selected {
+    border: 3px solid #007bff;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
