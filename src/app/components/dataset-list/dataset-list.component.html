@@ -11,9 +11,9 @@
         <div class="layout-container__main__datasets__status-cards">
           @for (status of statuses; track status) {
           <status-card
-            [status]="status"
-            [selectedStatus]="selectedCard"
-            (statusSelected)="filterDatasetsByStatus($event)">
+            [statusInput]="status"
+            [selectedStatusInput]="selectedCard"
+            (statusSelectedOutput)="filterDatasetsByStatus($event)">
           </status-card>
           }
         </div>

@@ -74,7 +74,6 @@ export class DatasetListComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  // Method to filter datasets based on status
   filterDatasetsByStatus(status: string) {
     this.selectedCard = status;
     const filteredDatasets = this.datasets.filter(dataset => dataset.status === status);
