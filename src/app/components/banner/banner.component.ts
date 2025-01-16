@@ -7,10 +7,8 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls:['./banner.component.scss'],
   imports: [MatCardModule],
 })
-export class BannerComponent implements OnInit{
+export class BannerComponent{
   @Input() imageURLInput!: string;
-
-  ngOnInit(): void {
-    console.log(this.imageURLInput)
-  }
+  @Input() primaryTextInput!: string;
+  @Input() secondaryTextInput!: string;
 }

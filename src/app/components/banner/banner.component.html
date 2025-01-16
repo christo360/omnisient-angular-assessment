@@ -8,7 +8,15 @@
           alt="CTA Banner"
           class="banner-container__cta-card__image-container__image"
       />
+      } @else {
+        <p class="banner-container__cta-card__image-container__fallback-text">
+          No image provided
+        </p>
       }
+      <div class="banner-container__cta-card__image-container__text">
+        <h2>{{ primaryTextInput }}</h2>
+        <p>{{ secondaryTextInput }}</p>
+      </div>
     </div>
   </mat-card>
 </div>
