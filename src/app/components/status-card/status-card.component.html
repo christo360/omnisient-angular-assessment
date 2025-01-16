@@ -6,7 +6,7 @@
 >
   <mat-card-content>
     <div class="status-text">
-      {{ statusDisplayText(statusInput) }}
+      {{ statusDisplayText(statusInput) }} <mat-icon>keyboard_arrow_down</mat-icon>
     </div>
     <div class="status-count">
       {{ statusCount$ | async}} <mat-icon [ngClass]="getStatusColorClass()">south_west</mat-icon>
