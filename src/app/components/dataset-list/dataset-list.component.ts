@@ -20,13 +20,17 @@ import { DatasetTableComponent } from '../dataset-table/dataset-table.component'
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
   datasets: Dataset[] = [];
+
   displayedColumns: string[] = ['id', 'name', 'uploadedBy', 'updateDate', 'actions'];
   displayedSideColumns: string[] = ['name', 'updateDate'];
+
   statuses: string[] = ['review', 'fail', 'shares'];
+
   dataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
   sideTableDataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
 
   selectedCard: string = '';
+  bannerImageUrl: string = 'assets/cta-banner.png';
   selectedDataset!: Dataset;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;

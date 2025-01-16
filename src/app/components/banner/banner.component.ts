@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -7,12 +7,10 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls:['./banner.component.scss'],
   imports: [MatCardModule],
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent implements OnInit{
+  @Input() imageURLInput!: string;
 
-
-
-  ngOnInit() {
-
+  ngOnInit(): void {
+    console.log(this.imageURLInput)
   }
-
 }
