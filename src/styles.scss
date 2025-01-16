@@ -23,3 +23,11 @@ p {
   font-weight: vars.$font-weight-regular;
   line-height: vars.$line-height-normal;
 }
+
+
+mat-icon {
+  font-size: vars.$font-size-md !important;
+  width: auto !important;
+  height: auto !important;
+}
+
