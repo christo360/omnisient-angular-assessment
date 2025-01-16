@@ -3,10 +3,9 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 import { Dataset } from '../../models/dataset.model';
 import { DatasetFacade } from '../../facades/dataset.facade';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { DatePipe, NgClass } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { BannerComponent } from '../banner/banner.component';
 import { StatusCardComponent } from "../status-card/status-card.component";
 import { DatasetTableComponent } from '../dataset-table/dataset-table.component';
@@ -31,6 +30,9 @@ export class DatasetListComponent implements OnInit, OnDestroy {
 
   selectedCard: string = '';
   bannerImageUrl: string = 'assets/cta-banner.png';
+  bannerPrimaryText: string = 'Welcome, Jennifer';
+  bannerSecondaryText: string = 'You have 2 notifications';
+
   selectedDataset!: Dataset;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
