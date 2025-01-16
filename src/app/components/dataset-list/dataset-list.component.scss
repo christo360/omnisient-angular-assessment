@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as vars;
+
 .layout-container {
   display: flex;
   gap: 20px;
@@ -10,11 +12,12 @@
     gap: 20px;
 
     &__datasets {
+      border-radius: vars.$radius05;
+      border: vars.$border solid vars.$grey03;
       min-height: 396px;
       padding: 16px;
-      box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
-                  0px 8px 10px 1px rgba(0, 0, 0, 0.14),
-                  0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+      box-shadow: 0px 2px 8px 0px rgba(30, 29, 89, 0.05);
+
 
      &__status-cards {
       display: flex;
@@ -23,7 +26,7 @@
      }
 
      &__heading {
-
+      margin: 5px 2px 10px;
      }
     }
   }

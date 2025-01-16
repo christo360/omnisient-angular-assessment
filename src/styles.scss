@@ -17,6 +17,13 @@ h2 {
   line-height: vars.$line-height-normal;
 }
 
+h6 {
+  font-family: vars.$font-family-primary;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-semibold;
+  line-height: vars.$line-height-normal;
+}
+
 p {
   font-family: vars.$font-family-primary;
   font-size: vars.$font-size-md;
@@ -29,5 +36,9 @@ mat-icon {
   font-size: vars.$font-size-md !important;
   width: auto !important;
   height: auto !important;
+}
+
+.mat-mdc-cell {
+  border-bottom: vars.$border solid vars.$grey03 !important;
 }
 
