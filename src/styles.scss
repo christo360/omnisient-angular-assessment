@@ -1,9 +1,25 @@
+@use './styles/variables.scss' as vars;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 
 html, body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: vars.$font-family-primary;
+}
+
+h2 {
+  font-family: vars.$font-family-primary;
+  font-size: vars.$font-size-lg;
+  font-weight: vars.$font-weight-bold;
+  line-height: vars.$line-height-normal;
+}
+
+p {
+  font-family: vars.$font-family-primary;
+  font-size: vars.$font-size-md;
+  font-weight: vars.$font-weight-regular;
+  line-height: vars.$line-height-normal;
 }
