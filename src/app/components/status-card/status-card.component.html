@@ -1,8 +1,8 @@
 <mat-card
   appearance="outlined"
   class="status-card"
-  [ngClass]="{'selected': selectedStatus === status}"
-  (click)="onCardClick(status)"
+  [ngClass]="{'selected': selectedStatusInput === statusInput}"
+  (click)="onCardClick(statusInput)"
 >
-  <mat-card-content>{{ statusDisplayText(status) }}</mat-card-content>
+  <mat-card-content>{{ statusDisplayText(statusInput) }} {{ statusCount$ | async}}</mat-card-content>
 </mat-card>
