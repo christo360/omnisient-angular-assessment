@@ -1,34 +1,43 @@
-.table-container {
-  height: 256px; /* Adjust this value to set the maximum height */
-  overflow-y: auto; /* Enables vertical scrolling when content exceeds the height */
-  border: 1px solid #ddd; /* Optional: Adds a border around the container */
-  border-radius: 4px; /* Optional: Rounded corners for the container */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for styling */
+@use '../../../styles/variables' as vars;
 
-  /* Ensures the table header remains fixed */
+.table-container {
+  height: 256px;
+  overflow-y: auto;
+  border: vars.$border solid vars.$grey03;
+  border-radius: vars.$radius07;
   table {
     width: 100%;
     border-collapse: collapse;
   }
 
+  button {
+    border-radius: vars.$radius05;
+    border: vars.$border solid vars.$grey03;
+  }
+
   th {
     position: sticky;
     top: 0;
-    background: white; /* Ensures header remains visible */
+    background: vars.$grey02;
+    border-bottom: vars.$border solid vars.$grey03;
     z-index: 2;
   }
+
+  td {
+    border-bottom: vars.$border solid vars.$grey03;
+  }
+
 
   .table-row {
     cursor: pointer;
   }
 
   .table-row:hover {
-    background-color: #f5f5f5; /* Slight gray background on hover */
+    background-color: vars.$grey01;
   }
 
-  /* Optional: Style for clickable rows in side table */
   .clickable-row:hover {
-    background-color: #f5f5f5; /* Slight gray background on hover for side table rows */
+    background-color: #f5f5f5;
   }
 }
 

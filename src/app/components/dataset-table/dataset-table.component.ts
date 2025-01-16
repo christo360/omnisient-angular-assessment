@@ -5,12 +5,13 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Dataset } from '../../models/dataset.model';
 import { DatePipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'dataset-table',
   templateUrl: './dataset-table.component.html',
   styleUrls: ['./dataset-table.component.scss'],
-  imports:[MatTableModule, DatePipe, MatPaginatorModule]
+  imports:[MatTableModule, DatePipe, MatPaginatorModule, MatIconModule]
 })
 export class DatasetTableComponent {
   @Input() dataSourceInput!: MatTableDataSource<Dataset>;
