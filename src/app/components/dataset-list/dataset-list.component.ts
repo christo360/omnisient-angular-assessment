@@ -1,24 +1,28 @@
 import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { Dataset } from '../models/dataset.model';
-import { DatasetFacade } from '../facades/dataset.facade';
+import { Dataset } from '../../models/dataset.model';
+import { DatasetFacade } from '../../facades/dataset.facade';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { DatePipe, NgClass } from '@angular/common';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
+import { BannerComponent } from '../banner/banner.component';
+import { StatusCardComponent } from "../status-card/status-card.component";
+import { DatasetTableComponent } from '../dataset-table/dataset-table.component';
 
 @Component({
   selector: 'app-dataset-list',
   templateUrl: './dataset-list.component.html',
   styleUrls:['./dataset-list.component.scss'],
-  imports: [DatePipe, MatTableModule, MatPaginator, MatCardModule, NgClass],
+  imports: [MatTableModule, MatCardModule, BannerComponent, StatusCardComponent, StatusCardComponent, DatasetTableComponent],
 })
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
   datasets: Dataset[] = [];
   displayedColumns: string[] = ['id', 'name', 'uploadedBy', 'updateDate', 'actions'];
   displayedSideColumns: string[] = ['name', 'updateDate'];
+  statuses: string[] = ['review', 'fail', 'shares'];
   dataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
   sideTableDataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
 
