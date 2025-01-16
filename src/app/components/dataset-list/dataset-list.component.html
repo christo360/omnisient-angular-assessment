@@ -20,11 +20,11 @@
 
       <h4 class="layout-container__main__datasets__heading">Dataset Table</h4>
        <dataset-table
-          [dataSource]="dataSource"
-          [displayedColumns]="displayedColumns"
-          [paginator]="paginator"
-          [sort]="sort"
-          (datasetClicked)="onDatasetClick($event)">
+          [dataSourceInput]="dataSource"
+          [displayedColumnsInput]="displayedColumns"
+          [paginatorInput]="paginator"
+          [sortInput]="sort"
+          (datasetClickedOutput)="onDatasetClick($event)">
         </dataset-table>
       </mat-card-content>
     </mat-card>
@@ -33,10 +33,10 @@
   <div class="layout-container__side">
     <h4>Recently available datasets </h4>
     <dataset-table
-      [dataSource]="sideTableDataSource"
-      [displayedColumns]="displayedSideColumns"
-      [paginator]="sidePaginator"
-      [sort]="sort">
+      [dataSourceInput]="sideTableDataSource"
+      [displayedColumnsInput]="displayedSideColumns"
+      [paginatorInput]="sidePaginator"
+      [sortInput]="sort">
     </dataset-table>
 
     @if (selectedDataset) {

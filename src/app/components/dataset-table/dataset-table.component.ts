@@ -13,21 +13,21 @@ import { DatePipe } from '@angular/common';
   imports:[MatTableModule, DatePipe, MatPaginatorModule]
 })
 export class DatasetTableComponent {
-  @Input() dataSource!: MatTableDataSource<Dataset>;
-  @Input() displayedColumns!: string[];
-  @Input() paginator!: MatPaginator;
-  @Input() sort!: MatSort;
-  @Output() datasetClicked = new EventEmitter<Dataset>();
+  @Input() dataSourceInput!: MatTableDataSource<Dataset>;
+  @Input() displayedColumnsInput!: string[];
+  @Input() paginatorInput!: MatPaginator;
+  @Input() sortInput!: MatSort;
+  @Output() datasetClickedOutput = new EventEmitter<Dataset>();
 
   @ViewChild(MatPaginator, { static: true }) childPaginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) childSort!: MatSort;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.childPaginator;
-    this.dataSource.sort = this.childSort;
+    this.dataSourceInput.paginator = this.childPaginator;
+    this.dataSourceInput.sort = this.childSort;
   }
 
   onDatasetClick(dataset: Dataset) {
-    this.datasetClicked.emit(dataset);
+    this.datasetClickedOutput.emit(dataset);
   }
 }
