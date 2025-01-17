@@ -64,9 +64,9 @@ The design of this project revolves around displaying datasets and their respect
 
 1. Dataset List Page:
 
-The primary screen displays a list of datasets. Upon loading the page, the user is presented with a table of datasets, and the most important datasets—those requiring user attention—are preselected.
+The Datalist page displays a list of datasets. Upon loading the page, the user is presented with a list of datasets - those requiring user reviews. 
 
-Each dataset is represented by a row that includes basic information, such as name, status, uploadedBy, and more.
+Each dataset is represented by a row that includes basic information, such as Dataset Name, Uploaded By and more.
 
 2. Dataset Status Cards:
 
