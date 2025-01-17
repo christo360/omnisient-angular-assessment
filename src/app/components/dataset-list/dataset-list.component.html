@@ -31,13 +31,10 @@
   </div>
 
   <div class="layout-container__side">
-    <h4>Recently available datasets </h4>
-    <dataset-table
-      [dataSourceInput]="sideTableDataSource"
-      [displayedColumnsInput]="displayedSideColumns"
-      [paginatorInput]="sidePaginator"
-      [sortInput]="sort">
-    </dataset-table>
+    <dataset-card
+      [datasetInput]="datasets"
+      [titleInput]="datasetCardTitle">
+    </dataset-card>
 
     @if (selectedDataset) {
       <mat-card class="layout-container__side__selected-card">

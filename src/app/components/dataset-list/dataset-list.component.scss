@@ -17,7 +17,7 @@
       min-height: 396px;
       padding: 16px;
       box-shadow: 0px 2px 8px 0px rgba(30, 29, 89, 0.05);
-
+      background-color: vars.$white;
 
      &__status-cards {
       display: flex;
@@ -32,11 +32,8 @@
   }
 
   &__side {
-    border: 1px black solid;
-    border-radius: 8px;
     flex: 1;
-    min-width: 0;
-    max-height: 405px;
+
 
     &__selected-card {
     margin-top: 20px;

@@ -9,12 +9,14 @@ import { MatCardModule } from '@angular/material/card';
 import { BannerComponent } from '../banner/banner.component';
 import { StatusCardComponent } from "../status-card/status-card.component";
 import { DatasetTableComponent } from '../dataset-table/dataset-table.component';
+import { DatePipe } from '@angular/common';
+import { DatasetCardComponent } from '../dataset-card/dataset-card.component';
 
 @Component({
   selector: 'app-dataset-list',
   templateUrl: './dataset-list.component.html',
   styleUrls:['./dataset-list.component.scss'],
-  imports: [MatTableModule, MatCardModule, BannerComponent, StatusCardComponent, StatusCardComponent, DatasetTableComponent],
+  imports: [MatTableModule, MatCardModule, BannerComponent, StatusCardComponent, StatusCardComponent, DatasetTableComponent, DatasetCardComponent],
 })
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;
@@ -28,10 +30,11 @@ export class DatasetListComponent implements OnInit, OnDestroy {
   dataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
   sideTableDataSource: MatTableDataSource<Dataset> = new MatTableDataSource();
 
-  selectedCard: string = '';
-  bannerImageUrl: string = 'assets/cta-banner.png';
-  bannerPrimaryText: string = 'Welcome, Jennifer';
-  bannerSecondaryText: string = 'You have 2 notifications';
+  selectedCard = '';
+  bannerImageUrl = 'assets/cta-banner.png';
+  bannerPrimaryText = 'Welcome, Jennifer';
+  bannerSecondaryText = 'You have 2 notifications';
+  datasetCardTitle = 'Recently available datasets';
 
   selectedDataset!: Dataset;
 
