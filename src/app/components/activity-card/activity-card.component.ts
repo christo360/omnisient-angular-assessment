@@ -13,5 +13,4 @@ import { DatePipe } from '@angular/common';
 })
 export class ActivityCardComponent {
   @Input() selectedDatasetInput!: Dataset;
-  @Input() titleInput!: string;
 }

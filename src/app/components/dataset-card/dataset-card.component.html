@@ -1,7 +1,10 @@
-<mat-card class="dataset-card">
-  <h6>{{ titleInput }}</h6>
+<mat-card class="dataset-card-container">
+  <mat-card-header class="dataset-card-container__heading">
+    <h6>{{ titleInput }}</h6>
+  </mat-card-header>
+
     @for (item of limitedDatasetInput; track item.id) {
-      <div class="dataset-card__item">
+      <div class="dataset-card-container__item">
         <span>{{ item.name }}</span>
         <span>{{ item.updateDate | date }}</span>
       </div>

@@ -1,14 +1,16 @@
 @use '../../../styles/variables' as vars;
 
-.dataset-card {
+.dataset-card-container {
   border: vars.$border solid vars.$grey03;
   border-radius: vars.$radius07;
   background-color: vars.$white;
   min-width: 0;
   height: 236px;
 
-  h6 {
-    padding: 0 16px;
+  &__heading {
+    padding: 0px 16px;
+    height: 60px;
+    border-bottom: vars.$border solid vars.$grey01;
   }
 
   &__item {
