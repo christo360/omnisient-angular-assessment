@@ -10,12 +10,14 @@ import { BannerComponent } from '../banner/banner.component';
 import { StatusCardComponent } from "../status-card/status-card.component";
 import { DatasetTableComponent } from '../dataset-table/dataset-table.component';
 import { DatasetCardComponent } from '../dataset-card/dataset-card.component';
+import { ActivityCardComponent } from '../activity-card/activity-card.component';
 
 @Component({
   selector: 'app-dataset-list',
   templateUrl: './dataset-list.component.html',
   styleUrls:['./dataset-list.component.scss'],
-  imports: [MatTableModule, MatCardModule, BannerComponent, StatusCardComponent, StatusCardComponent, DatasetTableComponent, DatasetCardComponent],
+  imports: [MatTableModule, MatCardModule, BannerComponent, StatusCardComponent, StatusCardComponent,
+            DatasetTableComponent, DatasetCardComponent,ActivityCardComponent],
 })
 export class DatasetListComponent implements OnInit, OnDestroy {
   datasets$!: Observable<MatTableDataSource<Dataset>>;

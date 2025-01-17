@@ -37,12 +37,9 @@
     </dataset-card>
 
     @if (selectedDataset) {
-      <mat-card class="layout-container__side__selected-card">
-        <mat-card-content>
-          <h4>Selected Dataset</h4>
-          <p>Name: {{ selectedDataset.name }}</p>
-        </mat-card-content>
-      </mat-card>
+      <activity-card
+       [selectedDatasetInput]="selectedDataset">
+      </activity-card>
     }
   </div>
 </div>

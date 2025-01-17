@@ -1,0 +1,12 @@
+@use '../../../styles/variables' as vars;
+
+.activity-card-container {
+  &__heading {
+    padding: 0px 16px;
+    height: 60px;
+    border-bottom: vars.$border solid vars.$grey01;
+  }
+  background-color: vars.$white;
+  margin-top: 20px;
+  width: 100%;
+  }
