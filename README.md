@@ -57,3 +57,39 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Design assumptions
+
+The design of this project revolves around displaying datasets and their respective statuses in a clear and intuitive layout.
+
+1. Dataset List Page:
+
+The primary screen displays a list of datasets. Upon loading the page, the user is presented with a table of datasets, and the most important datasets—those requiring user attention—are preselected.
+
+Each dataset is represented by a row that includes basic information, such as name, status, uploadedBy, and more.
+
+2. Dataset Status Cards:
+
+Above the list of datasets, there are three status cards representing different statuses ```(review, fail and shares) ```.
+
+These cards act as buttons and indicate how many datasets fall under each status category. When clicked, the cards filter and show datasets with the selected status type.
+
+3. Dataset Details View:
+
+When a user clicks the "View" button on a dataset row, the activity details of the selected dataset are displayed on the right-hand side in a card format.
+
+This card provides detailed information about the dataset's activity.
+
+Styling and Refinement
+
+Although the current layout provides a functional foundation, there are a number of stylistic refinements that are yet to be added:
+
+Refinement of Card Layouts:
+
+The dataset details card and the status cards could be further refined in terms of spacing, typography, and color schemes to improve readability and create a more cohesive design.
+
+Error and Personal Info Icons:
+
+Icons related to dataset errors should be visually distinct and appropriately sized to ensure they are easily identifiable.
+
+
