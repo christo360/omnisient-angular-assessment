@@ -18,10 +18,10 @@
     border-bottom: vars.$border solid vars.$grey03;
 
     &:last-child {
-      border-bottom: none; // Remove border for the last line
+      border-bottom: none;
     }
 
-    font-size: 14px; // Adjust font size if needed
-    color: #333; // Adjust color as per design
+    font-size: 14px;
+    color: #333;
   }
 }

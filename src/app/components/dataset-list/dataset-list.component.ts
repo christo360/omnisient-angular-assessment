@@ -9,7 +9,6 @@ import { MatCardModule } from '@angular/material/card';
 import { BannerComponent } from '../banner/banner.component';
 import { StatusCardComponent } from "../status-card/status-card.component";
 import { DatasetTableComponent } from '../dataset-table/dataset-table.component';
-import { DatePipe } from '@angular/common';
 import { DatasetCardComponent } from '../dataset-card/dataset-card.component';
 
 @Component({
@@ -40,7 +39,6 @@ export class DatasetListComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
-  @ViewChild('sidePaginator', { static: true }) sidePaginator!: MatPaginator;
 
   private datasetFacade = inject(DatasetFacade);
   private destroy$ = new Subject<void>();
@@ -55,12 +53,8 @@ export class DatasetListComponent implements OnInit, OnDestroy {
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
 
-         // Assign the full dataset to side table
-         this.sideTableDataSource.data = datasets;
-         this.sideTableDataSource.paginator = this.sidePaginator; // Bind paginator to side table
-
-         // Assign the filtered data for the main table based on status (default filter)
-         this.filterDatasetsByStatus('review');
+        this.sideTableDataSource.data = datasets;
+        this.filterDatasetsByStatus('review');
       },
       error: (err) => {
         this.datasets = [];
