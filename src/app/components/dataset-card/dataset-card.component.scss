@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as vars;
+
+.dataset-card {
+  border: vars.$border solid vars.$grey03;
+  border-radius: vars.$radius07;
+  background-color: vars.$white;
+  min-width: 0;
+  height: 236px;
+
+  h6 {
+    padding: 0 16px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 16px;
+    border-bottom: vars.$border solid vars.$grey03;
+
+    &:last-child {
+      border-bottom: none; // Remove border for the last line
+    }
+
+    font-size: 14px; // Adjust font size if needed
+    color: #333; // Adjust color as per design
+  }
+}

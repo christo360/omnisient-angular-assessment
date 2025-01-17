@@ -1,0 +1,13 @@
+<mat-card class="dataset-card">
+  <h6>{{ titleInput }}</h6>
+    @for (item of limitedDatasetInput; track item.id) {
+      <div class="dataset-card__item">
+        <span>{{ item.name }}</span>
+        <span>{{ item.updateDate | date }}</span>
+      </div>
+    }
+  <mat-card-actions>
+    <button><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <button ><mat-icon>keyboard_arrow_right</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
