@@ -15,8 +15,14 @@ describe('ActivityCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatCardModule, MatIconModule, ActivityCardComponent],
-      providers: [DatePipe],
+      imports: [
+        MatCardModule,
+        MatIconModule,
+        ActivityCardComponent
+      ],
+      providers: [
+        DatePipe
+      ],
     }).compileComponents();
   });
 

@@ -18,7 +18,9 @@ describe('StatusCardComponent', () => {
     mockDatasetFacade = instance(mockedFacade);
 
     await TestBed.configureTestingModule({
-      imports: [StatusCardComponent],
+      imports: [
+        StatusCardComponent
+      ],
       providers: [{ provide: DatasetFacade, useValue: mockDatasetFacade }],
     }).compileComponents();
 

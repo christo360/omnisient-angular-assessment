@@ -16,7 +16,9 @@ describe('DatasetCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DatasetCardComponent],
+      imports: [
+        DatasetCardComponent
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DatasetCardComponent);
