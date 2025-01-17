@@ -1,4 +1,3 @@
-// dataset-table.component.ts
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
